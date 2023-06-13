@@ -183,9 +183,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  container: {
-    alignItems: 'center',
-  },
   TopBarContainer: {
     width: "100%",
     display: "flex",

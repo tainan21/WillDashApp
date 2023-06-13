@@ -20,7 +20,7 @@ const ProductCard = ({
       <View style={styles.imageContainer}>
         <Image source={{ uri: image }} style={styles.productImage} />
         <TouchableOpacity style={styles.tagAbsolute} onPress={onPressSecondary}>
-          <Ionicons name="pet" size={20} color="white" />
+          <Ionicons name="share" size={20} color="white" />
         </TouchableOpacity>
       </View>
       <View style={styles.infoContainer}>
@@ -118,18 +118,18 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 500,
     color: "#333",
-    fontFamily: "Montserrat,sans-serif",
+    //fontFamily: "Montserrat,sans-serif",
   },
   buttonText:{
     fontSize: 12,
     color: "#fff",
-    fontFamily: "Montserrat,sans-serif",
+    //fontFamily: "Montserrat,sans-serif",
   },
   primaryTextPrice:{
     fontSize: 15,
     fontWeight: 500,
     color: "#333",
-    fontFamily: "Montserrat,sans-serif",
+    //fontFamily: "Montserrat,sans-serif",
   },
   infoButtons:{
     width: "100%",

@@ -7,8 +7,10 @@ import { colors } from "../../constants";
 import UserProfileScreen from "../../screens/profile/UserProfileScreen";
 import HomeIconActive from "../../assets/icons/bar_home_icon_active.png";
 import HomeIcon from "../../assets/icons/bar_home_icon.png";
+import CenterIcon from "../../assets/icons/bar_center_icon.png";
 import userIcon from "../../assets/icons/bar_profile_icon.png";
 import userIconActive from "../../assets/icons/bar_profile_icon_active.png";
+import MyCenterScreen from "../../screens/user/MyOrderScreen";
 import MyOrderScreen from "../../screens/user/MyOrderScreen";
 import CategoriesScreen from "../../screens/user/CategoriesScreen";
 
@@ -49,17 +51,25 @@ const Tabs = ({ navigation, route }) => {
             return (
               <TouchableOpacity disabled>
                 {focused == true ? (
-                  <Ionicons
-                    name="ios-apps-sharp"
-                    size={29}
-                    color={colors.primary}
-                  />
-                ) : (
-                  <Ionicons
-                    name="ios-apps-sharp"
-                    size={29}
-                    color={colors.muted}
-                  />
+                <Image
+                source={userIconActive}
+                style={StyleSheet.tabIconStyle}
+              />
+            ) : (
+              <Image source={userIcon} style={StyleSheet.tabIconStyle} />
+                )}
+              </TouchableOpacity>
+            );
+          } else if (routename == "pallet") {
+            return (
+              <TouchableOpacity disabled>
+                {focused == true ? (
+                <Image
+                source={CenterIcon}
+                style={StyleSheet.tabIconStyle}
+              />
+            ) : (
+              <Image source={CenterIcon} style={StyleSheet.tabIconStyle} />
                 )}
               </TouchableOpacity>
             );
@@ -81,16 +91,17 @@ const Tabs = ({ navigation, route }) => {
                 )}
               </TouchableOpacity>
             );
+         
           } else if (routename == "user") {
             return (
               <TouchableOpacity disabled>
                 {focused == true ? (
                   <Image
-                    source={userIconActive}
+                    source={HomeIcon}
                     style={StyleSheet.tabIconStyle}
                   />
                 ) : (
-                  <Image source={userIcon} style={StyleSheet.tabIconStyle} />
+                  <Image source={HomeIcon} style={StyleSheet.tabIconStyle} />
                 )}
               </TouchableOpacity>
             );
@@ -99,7 +110,7 @@ const Tabs = ({ navigation, route }) => {
         tabBarStyle: {
           borderTopLeftRadius: 20,
           borderTopRightRadius: 20,
-          backgroundColor: colors.white,
+          backgroundColor: colors.dark,
         },
       })}
     >
@@ -124,6 +135,15 @@ const Tabs = ({ navigation, route }) => {
           },
         }}
       />
+            {
+        // Wishlist is ready yet!
+        <Tab.Screen
+          name="pallet"
+          component={MyCenterScreen}
+          initialParams={{ user: user }}
+        />
+      }
+
       {
         // Wishlist is ready yet!
         <Tab.Screen
@@ -132,6 +152,7 @@ const Tabs = ({ navigation, route }) => {
           initialParams={{ user: user }}
         />
       }
+  
       <Tab.Screen
         name="user"
         component={UserProfileScreen}

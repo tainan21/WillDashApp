@@ -16,6 +16,8 @@ import scanIcon from "../../assets/icons/scan_icons.png";
 import easybuylogo from "../../assets/logo/logo-pet.png";
 import { colors } from "../../constants";
 import CustomIconButton from "../../components/CustomIconButton/CustomIconButton";
+
+import UserProfileCard from "../../components/BarTopHome/UserProfileCard";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { network } from "../../constants";
 import { useSelector, useDispatch } from "react-redux";
@@ -27,23 +29,23 @@ import { SliderBox } from "react-native-image-slider-box";
 const category = [
   {
     _id: "62fe244f58f7aa8230817f89",
-    title: "Cobasi",
-    image: require("../../assets/icons/garments.png"),
+    title: "Nutricionista",
+    image: require("../../assets/icons/Carlos.jpg"),
   },
   {
     _id: "62fe243858f7aa8230817f86",
-    title: "PetLover",
-    image: require("../../assets/icons/electronics.png"),
+    title: "PersonalX",
+    image: require("../../assets/icons/Carlos.jpg"),
   },
   {
     _id: "62fe241958f7aa8230817f83",
-    title: "PetLover",
-    image: require("../../assets/icons/cosmetics.png"),
+    title: "PersonalX",
+    image: require("../../assets/icons/Carlos.jpg"),
   },
   {
     _id: "62fe246858f7aa8230817f8c",
-    title: "PetLover",
-    image: require("../../assets/icons/grocery.png"),
+    title: "PersonalX",
+    image: require("../../assets/icons/Carlos.jpg"),
   },
 ];
 
@@ -130,49 +132,14 @@ const HomeScreen = ({ navigation, route }) => {
       <StatusBar></StatusBar>
       <View style={styles.topBarContainer}>
         <TouchableOpacity>
-          <Image source={easybuylogo} style={styles.logo} />
+          <UserProfileCard
+            Icon={Ionicons}
+            name={user["name"]}
+            email={user["email"]}
+          />
+  
         </TouchableOpacity>
-        
-        <View style={styles.inputContainer}>
-        <SearchableDropdown
-              onTextChange={(text) => console.log(text)}
-              onItemSelect={(item) => handleProductPress(item)}
-              defaultIndex={0}
-              containerStyle={{
-                borderRadius: 5,
-                width: "100%",
-                elevation: 5,
-                position: "absolute",
-                zIndex: 20,
-                top: -20,
-                maxHeight: 300,
-                backgroundColor: colors.light,
-              }}
-              textInputStyle={{
-                borderRadius: 10,
-                padding: 6,
-                paddingLeft: 10,
-                borderWidth: 0,
-                backgroundColor: colors.white,
-              }}
-              itemStyle={{
-                padding: 10,
-                marginTop: 2,
-                backgroundColor: colors.white,
-                borderColor: colors.muted,
-              }}
-              itemTextStyle={{
-                color: colors.muted,
-              }}
-              itemsContainerStyle={{
-                maxHeight: "100%",
-              }}
-              items={searchItems}
-              placeholder="Produtos ou serviços..."
-              resetValue={false}
-              underlineColorAndroid="transparent"
-            />
-        </View>
+      
         <TouchableOpacity
           style={styles.cartIconContainer}
           onPress={() => navigation.navigate("cart")}
@@ -317,12 +284,11 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     flexDirecion: "row",
-    backgroundColor: colors.light,
+    backgroundColor: colors.dark,
     alignItems: "center",
     justifyContent: "flex-start",
     paddingBottom: 0,
     flex: 1,
-    marginTop: 20,
   },
   topBarContainer: {
     width: "100%",
@@ -390,7 +356,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: colors.primary,
+    backgroundColor: colors.light,
     borderRadius: 10,
     height: 40,
     width: "100%",
@@ -408,15 +374,16 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     width: "100%",
     paddingTop: 10,
+    color: colors.light,
     paddingBottom: 10,
   },
   primaryText: {
     fontSize: 20,
+    color: colors.light,
     fontWeight: "bold",
   },
   flatListContainer: {
     width: "100%",
-    height: 50,
     marginTop: 10,
     marginLeft: 10,
   },
@@ -431,7 +398,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     width: "100%",
-    height: 60,
     marginLeft: 10,
   },
   emptyView: { width: 30 },

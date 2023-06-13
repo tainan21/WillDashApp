@@ -9,6 +9,7 @@ const CustomIconButton = ({ text, image, onPress, active }) => {
       style={[
         styles.container,
         { backgroundColor: active ? colors.primary_light : colors.white },
+        { width: "100%" },
       ]}
       onPress={onPress}
     >
@@ -29,25 +30,32 @@ export default CustomIconButton;
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
-    backgroundColor: colors.white,
-    borderRadius: 10,
-    height: 40,
-    width: 110,
-    elevation: 3,
-    margin: 5,
+    flex: 1,
+    justifyContent: "center",
+    borderRadius:50,
+    borderWidth: 3,
+    width: 80,
+    height: 80,
+    backgroundColor: '#fff',
+    borderColor: '#2fcc66',
+    marginHorizontal: 5,
+    
   },
   buttonText: {
-    fontSize: 12,
-    color: colors.muted,
-    fontWeight: "bold",
+    position: "absolute",
+    top: 80,
+    backgroundColor: colors.white,
+    height: 20,
+    textAlign: "center",
   },
   buttonIcon: {
-    height: 20,
-    width: 35,
-    resizeMode: "contain",
+    height: 80,
+    width: 80,
+    resizeMode: "cover",
+    padding: 20,
+  },
+  buttonImage: {
+    width: 120,
   },
 });

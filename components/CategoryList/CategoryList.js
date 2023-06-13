@@ -16,7 +16,7 @@ const CategoryList = ({
         <View style={styles.imageContainer}>
           <Image
             source={{ uri: icon }}
-            style={{ height: 120, width: "auto", resizeMode: "contain" }}
+            style={{ height: 220, width: "auto", resizeMode: "contain" }}
           />
         </View>
         <View style={styles.categoryInfo}>
